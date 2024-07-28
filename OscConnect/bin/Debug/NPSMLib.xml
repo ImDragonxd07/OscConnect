@@ -1,0 +1,835 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NPSMLib</name>
+    </assembly>
+    <members>
+        <member name="T:NPSMLib.NowPlayingSessionType">
+            <summary>
+            Specifies the now playing session type.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.NowPlayingSessionType.Unknown">
+            <summary>
+            The session type is unknown.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.NowPlayingSessionType.PlayTo">
+            <summary>
+            The session is played remotely.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.NowPlayingSessionType.Local">
+            <summary>
+            The session is local.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.MediaPlaybackCommands">
+            <summary>
+            Specifies the media playback commands that could be sent to a media session
+            through the <see cref="M:NPSMLib.MediaPlaybackDataSource.SendMediaPlaybackCommand(NPSMLib.MediaPlaybackCommands)"/> method.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.Play">
+            <summary>
+            The play command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.Pause">
+            <summary>
+            The pause command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.Stop">
+            <summary>
+            The stop command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.Record">
+            <summary>
+            The record command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.FastForward">
+            <summary>
+            The fast forward command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.Rewind">
+            <summary>
+            The rewind command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.Next">
+            <summary>
+            The next command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.Previous">
+            <summary>
+            The previous command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.ChannelUp">
+            <summary>
+            The channel up command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.ChannelDown">
+            <summary>
+            The channel down command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.PlayPauseToggle">
+            <summary>
+            The play/pause toggle command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCommands.Max">
+            <summary>
+            The max command.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.MediaPlaybackRepeatMode">
+            <summary>
+            Specifies the repeat mode for media playback.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackRepeatMode.Unknown">
+            <summary>
+            Unknown.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackRepeatMode.None">
+            <summary>
+            No repeating.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackRepeatMode.Track">
+            <summary>
+            Repeat the current track.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackRepeatMode.List">
+            <summary>
+            Repeat the current list of tracks.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.MediaPlaybackDataChangedEvent">
+            <summary>
+            Specifies the type of media playback data changed event.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackDataChangedEvent.PlaybackInfoChanged">
+            <summary>
+            The playback information of the media playback changed.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackDataChangedEvent.MediaInfoChanged">
+            <summary>
+            The media information of the media playback changed.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackDataChangedEvent.TimelinePropertiesChanged">
+            <summary>
+            The timeline properties of the media playback changed.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.NowPlayingSessionManagerNotificationType">
+            <summary>
+            Specifies the type of sessions changed notification.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.NowPlayingSessionManagerNotificationType.SessionCreated">
+            <summary>
+            A new session was created.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.NowPlayingSessionManagerNotificationType.CurrentSessionChanged">
+            <summary>
+            The current session changed.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.NowPlayingSessionManagerNotificationType.SessionDisconnected">
+            <summary>
+            A session was disconnected.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.MediaPlaybackProps">
+            <summary>
+            Specifies which properties of <see cref="T:NPSMLib.MediaPlaybackInfo"/> are valid.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackProps.Capabilities">
+            <summary>
+            The <see cref="P:NPSMLib.MediaPlaybackInfo.PlaybackCaps"/> property is valid.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackProps.State">
+            <summary>
+            The <see cref="P:NPSMLib.MediaPlaybackInfo.PlaybackState"/> property is valid.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackProps.Mode">
+            <summary>
+            The <see cref="P:NPSMLib.MediaPlaybackInfo.PlaybackMode"/> property is valid.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackProps.AutoRepeatMode">
+            <summary>
+            The <see cref="P:NPSMLib.MediaPlaybackInfo.RepeatMode"/> property is valid.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackProps.PlaybackRate">
+            <summary>
+            The <see cref="P:NPSMLib.MediaPlaybackInfo.PlaybackRate"/> property is valid.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackProps.ShuffleEnabled">
+            <summary>
+            The <see cref="P:NPSMLib.MediaPlaybackInfo.ShuffleEnabled"/> property is valid.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.MediaPlaybackCapabilities">
+            <summary>
+            Specifies the capabilities of a media playback.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.None">
+            <summary>
+            The media playback currently has no capabilities.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.Play">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.Play"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.Pause">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.Pause"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.Stop">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.Stop"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.Record">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.Record"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.FastForward">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.FastForward"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.Rewind">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.Rewind"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.Next">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.Next"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.Previous">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.Previous"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.ChannelUp">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.ChannelUp"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.ChannelDown">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.ChannelDown"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.PlayPauseToggle">
+            <summary>
+            The media playback currently supports the <see cref="F:NPSMLib.MediaPlaybackCommands.PlayPauseToggle"/> command.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.HandleEndpointChange">
+            <summary>
+            The media playback currently supports handling end-point changes.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.Shuffle">
+            <summary>
+            The media playback currently supports changing its shuffle state.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.Repeat">
+            <summary>
+            The media playback currently supports changing its repeat mode.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.PlaybackRate">
+            <summary>
+            The media playback currently supports changing its playback rate.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackCapabilities.PlaybackPosition">
+            <summary>
+            The media playback currently supports changing its playback position.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.MediaPlaybackState">
+            <summary>
+            Specifies the state of a media playback.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackState.Unknown">
+            <summary>
+            The media playback state is unknown.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackState.Closed">
+            <summary>
+            The media playback closed.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackState.Opened">
+            <summary>
+            The media playback opened.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackState.Changing">
+            <summary>
+            The media playback is changing.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackState.Stopped">
+            <summary>
+            The media playback is stopped.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackState.Playing">
+            <summary>
+            The media playback is playing.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackState.Paused">
+            <summary>
+            The media playback is paused.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.MediaPlaybackMode">
+            <summary>
+            Specifies the mode or type of a media playback.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackMode.Unknown">
+            <summary>
+            The media type is unknown.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackMode.Audio">
+            <summary>
+            The media type is audio.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackMode.Video">
+            <summary>
+            The media type is video.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackMode.Image">
+            <summary>
+            The media type is image.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackMode.Podcast">
+            <summary>
+            The media type is podcast.
+            </summary>
+        </member>
+        <member name="F:NPSMLib.MediaPlaybackMode.AudioBook">
+            <summary>
+            The media type is audio book.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.MediaPlaybackDataSource">
+            <summary>
+            Represents the media playback data of a media session and provides the ability to control its playback.
+            </summary>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.MediaSchemaToMediaPlaybackMode(System.String)">
+            <summary>
+            Converts a media schema (or primary class ID) string into the corresponding <see cref="T:NPSMLib.MediaPlaybackMode"/> enumeration.
+            </summary>
+            <param name="mediaSchema">The media schema to convert.</param>
+            <returns>The corresponding <see cref="T:NPSMLib.MediaPlaybackMode"/> enumeration.</returns>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.GetMediaObjectInfo">
+            <summary>
+            Gets the <see cref="T:NPSMLib.MediaObjectInfo"/> for this session, accurate to the time of the call.
+            </summary>
+            <returns>A <see cref="T:NPSMLib.MediaObjectInfo"/> that represents the current media info for this session.</returns>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.GetThumbnailStream">
+            <summary>
+            Gets the stream reference of the thumbnail image associated with this media playback.
+            </summary>
+            <returns>
+            A <see cref="T:System.IO.Stream"/> that is associated with the media playback's thumbnail image.
+            </returns>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.GetMediaPlaybackInfo">
+            <summary>
+            Gets the <see cref="T:NPSMLib.MediaPlaybackInfo"/> for this session, accurate to the time of the call.
+            </summary>
+            <returns>A <see cref="T:NPSMLib.MediaPlaybackInfo"/> that represents the current playback info for this session.</returns>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.GetMediaTimelineProperties">
+            <summary>
+            Gets the <see cref="T:NPSMLib.MediaTimelineProperties"/> instance that represents this sessions timeline state.
+            </summary>
+            <returns>A <see cref="T:NPSMLib.MediaTimelineProperties"/> that represents the timeline property values.</returns>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.GetParentApplicationId">
+            <summary>
+            Gets the application Id of the source application of the session.
+            </summary>
+            <returns>The application Id.</returns>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.SendMediaPlaybackCommand(NPSMLib.MediaPlaybackCommands)">
+            <summary>
+            Sends a media playback command to the media session.
+            </summary>
+            <param name="command">The media playback command to send.</param>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.SendPlaybackPositionChangeRequest(System.TimeSpan)">
+            <summary>
+            Sends a request to the media session to change its playback position to the specified position.
+            </summary>
+            <param name="requestedPlaybackPosition">The requested playback position to seek to.</param>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.SendPlaybackRateChangeRequest(System.Double)">
+            <summary>
+            Sends a request to the media session to change its playback rate to the requested value.
+            </summary>
+            <param name="requestedPlaybackRate">The requested playback rate to change to.</param>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.SendRepeatModeChangeRequest(NPSMLib.MediaPlaybackRepeatMode)">
+            <summary>
+            Sends a request to the media session to change its repeat mode to the requested value.
+            </summary>
+            <param name="requestedRepeatMode">The requested auto repeat mode.</param>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="M:NPSMLib.MediaPlaybackDataSource.SendShuffleEnabledChangeRequest(System.Boolean)">
+            <summary>
+            Sends a request to the media session to change its shuffle state to the requested value.
+            </summary>
+            <param name="requestedShuffle">The requested shuffle state to switch to.</param>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="E:NPSMLib.MediaPlaybackDataSource.MediaPlaybackDataChanged">
+            <summary>
+            Occurs when the session's media playback data have changed.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.MediaPlaybackDataChangedArgs">
+            <summary>
+            Represents arguments for a <see cref="E:NPSMLib.MediaPlaybackDataSource.MediaPlaybackDataChanged"/> event.
+            </summary>
+        </member>
+        <member name="P:NPSMLib.MediaPlaybackDataChangedArgs.MediaPlaybackDataSource">
+            <summary>
+            Gets the <see cref="P:NPSMLib.MediaPlaybackDataChangedArgs.MediaPlaybackDataSource"/> which raised the event.
+            </summary>
+            <returns>
+            The <see cref="P:NPSMLib.MediaPlaybackDataChangedArgs.MediaPlaybackDataSource"/> which raised the event.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.MediaPlaybackDataChangedArgs.DataChangedEvent">
+            <summary>
+            Gets the type of the event.
+            </summary>
+            <returns>A <see cref="T:NPSMLib.MediaPlaybackDataChangedEvent"/> which represents the type of the event.</returns>
+        </member>
+        <member name="T:NPSMLib.NowPlayingSession">
+            <summary>
+            Represents a media playback session from another application providing info about that session and possibly allowing control.
+            </summary>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSession.Hwnd">
+            <summary>
+            Gets the handle of the window associated with this session's source application.
+            </summary>
+            <returns>An <see cref="T:System.IntPtr"/> that represents the handle of the window associated with this session's source application.</returns>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSession.PID">
+            <summary>
+            Gets the process ID of this session's source application.
+            </summary>
+            <returns>The process ID of this session's source application.</returns>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSession.RenderDeviceId">
+            <summary>
+            Gets the render device ID of this session's source application.
+            </summary>
+            <returns>The render device ID of this session's source application.</returns>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSession.SourceAppId">
+            <summary>
+            Gets the application ID of this session's source application.
+            </summary>
+            <returns>The application ID of this session's source application.</returns>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSession.SourceDeviceId">
+            <summary>
+            Gets the source device ID of this session's source application.
+            </summary>
+            <returns>The source device ID of this session's source application.</returns>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSession.Connection">
+            <summary>
+            Unknown.
+            </summary>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSession.ActivateMediaPlaybackDataSource">
+            <summary>
+            Gets the <see cref="T:NPSMLib.MediaPlaybackDataSource"/> for this session.
+            </summary>
+            <returns>The <see cref="T:NPSMLib.MediaPlaybackDataSource"/> associated this session.</returns>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSession.GetSessionType">
+            <summary>
+            Gets the type of this session.
+            </summary>
+            <returns>A <see cref="T:NPSMLib.NowPlayingSessionType"/> that represents the type of this session.</returns>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSession.GetSessionInfo">
+            <summary>
+            Gets the <see cref="T:NPSMLib.NowPlayingSessionInfo"/> for this session.
+            </summary>
+            <returns>The <see cref="T:NPSMLib.NowPlayingSessionInfo"/> associated this session.</returns>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSession.BeginInteractionWithSession">
+            <summary>
+            Unknown, 14393+
+            </summary>
+            <returns>Returns an IUnknown object (token)</returns>
+        </member>
+        <member name="T:NPSMLib.NowPlayingSessionInfo">
+            <summary>
+            Represents the information associated with a <see cref="T:NPSMLib.NowPlayingSession"/>.
+            </summary>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSessionInfo.GetInfo(System.IntPtr@,System.UInt32@,System.String@)">
+            <summary>
+            Gets the information associated with the session.
+            </summary>
+            <param name="hWnd">The window handle associated with the session's source application.</param>
+            <param name="PID">The process ID of the session's source application.</param>
+            <param name="DeviceId">The device ID of the session's source application.</param>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSessionInfo.Equals(NPSMLib.NowPlayingSessionInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:NPSMLib.NowPlayingSessionManager">
+            <summary>
+            Provides access to playback sessions throughout the system that have integrated
+            with SystemMediaTransportControls to provide playback info and allow remote control.
+            </summary>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSessionManager.#ctor">
+            <summary>
+            Creates an instance of the <see cref="T:NPSMLib.NowPlayingSessionManager"/>.
+            </summary>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSessionManager.CurrentSession">
+            <summary>
+            Gets the current session. This is the session that the system believes the user would most likely want to control.
+            </summary>
+            <returns>The <see cref="T:NPSMLib.NowPlayingSession"/> that represents this remote session.</returns>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSessionManager.Count">
+            <summary>
+            Get the total number of sessions.
+            </summary>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSessionManager.GetSessions">
+            <summary>
+            Gets all of the available sessions.
+            </summary>
+            <returns>An array of all available <see cref="T:NPSMLib.NowPlayingSession"/>.</returns>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSessionManager.SetNextCurrentSession">
+            <summary>
+            Sets the next session as current.
+            </summary>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSessionManager.SetCurrentSession(NPSMLib.NowPlayingSessionInfo)">
+            <summary>
+            Sets the current session. This is the session that the system believes the user would most likely want to control.
+            </summary>
+            <param name="pInfo">The <see cref="T:NPSMLib.NowPlayingSessionInfo"/> associated with the corresponding session to set as current.</param>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSessionManager.RemoveSession(NPSMLib.NowPlayingSessionInfo)">
+            <summary>
+            Removes the requested session from the sessions list.
+            </summary>
+            <param name="pInfo">The <see cref="T:NPSMLib.NowPlayingSessionInfo"/> associated with the corresponding session to remove.</param>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSessionManager.FindSession(NPSMLib.NowPlayingSessionInfo)">
+            <summary>
+            Finds and returns the <see cref="T:NPSMLib.NowPlayingSession"/> associated with a <see cref="T:NPSMLib.NowPlayingSessionInfo"/>.
+            </summary>
+            <param name="pInfo">The <see cref="T:NPSMLib.NowPlayingSessionInfo"/> to find the <see cref="T:NPSMLib.NowPlayingSession"/> for.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSessionManager.Refresh(System.IntPtr)">
+            <summary>
+            ?
+            </summary>
+            <param name="hWnd">Handle to the window present in any session</param>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="M:NPSMLib.NowPlayingSessionManager.Update(System.Boolean,System.IntPtr,System.UInt32,System.UInt64,NPSMLib.MediaPlaybackDataSource)">
+            <summary>
+            Updates a session.
+            </summary>
+            <param name="fEnabled">The requested enabled state to apply.</param>
+            <param name="hwnd">The window handle associated with the session's source application.</param>
+            <param name="dwPID">The process ID of the session's source application.</param>
+            <param name="unknown">Unknown.</param>
+            <param name="pSource">The <see cref="T:NPSMLib.MediaPlaybackDataSource"/> associated with the session.</param>
+            <returns>Bool indicating success.</returns>
+        </member>
+        <member name="E:NPSMLib.NowPlayingSessionManager.SessionListChanged">
+            <summary>
+            Occurs when the sessions list have changed.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.NowPlayingSessionManagerEventArgs">
+            <summary>
+            Represents arguments for a <see cref="E:NPSMLib.NowPlayingSessionManager.SessionListChanged"/> event.
+            </summary>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSessionManagerEventArgs.NotificationType">
+            <summary>
+            Gets the change notification type of the event.
+            </summary>
+            <returns>
+            A <see cref="T:NPSMLib.NowPlayingSessionManagerNotificationType"/> that represents the
+            the change notification type of the event.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSessionManagerEventArgs.NowPlayingSessionInfo">
+            <summary>
+            Gets the changed session's information.
+            </summary>
+            <return>A <see cref="P:NPSMLib.NowPlayingSessionManagerEventArgs.NowPlayingSessionInfo"/> that represents the changed session which gave raise to the event.</return>
+        </member>
+        <member name="P:NPSMLib.NowPlayingSessionManagerEventArgs.SessionTypeString">
+            <summary>
+            Gets the type of the session.
+            </summary>
+        </member>
+        <member name="T:NPSMLib.MediaPlaybackInfo">
+            <summary>
+            The structure that holds all the playback information about a media session.
+            </summary>
+        </member>
+        <member name="P:NPSMLib.MediaPlaybackInfo.PropsValid">
+            <summary>
+            Gets a value indicating which properties of <see cref="T:NPSMLib.MediaPlaybackInfo"/> are valid.
+            </summary>
+            <returns>
+            A bitwise combination of the <see cref="T:NPSMLib.MediaPlaybackProps"/> values
+            indicating which properties of <see cref="T:NPSMLib.MediaPlaybackInfo"/> are valid.
+            </returns>
+            <remarks>
+            Use this property to assure which properties of <see cref="T:NPSMLib.MediaPlaybackInfo"/> are valid
+            before preforming any operation on the corresponding media playback.
+            </remarks>
+        </member>
+        <member name="P:NPSMLib.MediaPlaybackInfo.PlaybackCaps">
+            <summary>
+            Gets the capabilities of the media playback.
+            </summary>
+            <returns>
+            A bitwise combination of the <see cref="T:NPSMLib.MediaPlaybackCapabilities"/> values
+            that represents the capabilities of the media playback.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.MediaPlaybackInfo.PlaybackState">
+            <summary>
+            Gets the state of the media playback.
+            </summary>
+            <returns>
+            A <see cref="T:NPSMLib.MediaPlaybackState"/> that represents the current state of the media playback.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.MediaPlaybackInfo.PlaybackMode">
+            <summary>
+            Gets the mode or type of the media playback.
+            </summary>
+            <returns>
+            A <see cref="T:NPSMLib.MediaPlaybackMode"/> that represents the mode or type of the media playback.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.MediaPlaybackInfo.RepeatMode">
+            <summary>
+            Gets the auto-repeat mode of the media playback.
+            </summary>
+            <returns>
+            A <see cref="T:NPSMLib.MediaPlaybackRepeatMode"/> that represents the auto-repeat mode of the media playback.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.MediaPlaybackInfo.PlaybackRate">
+            <summary>
+            Gets the rate of the media playback.
+            </summary>
+            <returns>A <see cref="T:System.Double"/> that represents the rate of the media playback.</returns>
+        </member>
+        <member name="P:NPSMLib.MediaPlaybackInfo.ShuffleEnabled">
+            <summary>
+            Gets the shuffle state of the media playback.
+            </summary>
+            <returns>A <see cref="T:System.Boolean"/> that represents the shuffle state of the media playback.</returns>
+        </member>
+        <member name="P:NPSMLib.MediaPlaybackInfo.LastPlayingFileTime">
+            <summary>
+            Gets the last playing time of the media playback.
+            </summary>
+            <returns>A <see cref="T:System.DateTime"/> that represents the last playing time of the media playback.</returns>
+        </member>
+        <member name="T:NPSMLib.MediaTimelineProperties">
+            <summary>
+            A structure that represents the timeline state of the session (Position, seek ranges etc.).
+            </summary>
+        </member>
+        <member name="P:NPSMLib.MediaTimelineProperties.StartTime">
+            <summary>
+            Gets the starting timestamp of the current media item.
+            </summary>
+            <returns>
+            A <see cref="T:System.TimeSpan"/> that represents the starting timestamp of the current media item.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.MediaTimelineProperties.EndTime">
+            <summary>
+            Gets the end timestamp of the current media item.
+            </summary>
+            <returns>
+            A <see cref="T:System.TimeSpan"/> that represents the end timestamp of the current media item.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.MediaTimelineProperties.MinSeekTime">
+            <summary>
+            Gets the earliest timestamp at which the current media item can currently seek to.
+            </summary>
+            <returns>
+            A <see cref="T:System.TimeSpan"/> that represents the earliest timestamp
+            at which the current media item can currently seek to.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.MediaTimelineProperties.MaxSeekTime">
+            <summary>
+            Gets the furthest timestamp at which the current media item can currently seek to.
+            </summary>
+            <returns>
+            A <see cref="T:System.TimeSpan"/> that represents the furthest timestamp
+            at which the current media item can currently seek to.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.MediaTimelineProperties.Position">
+            <summary>
+            Gets the playback position, current as of <see cref="P:NPSMLib.MediaTimelineProperties.PositionSetFileTime"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.TimeSpan"/> that represents the playback position,
+            current as of <see cref="P:NPSMLib.MediaTimelineProperties.PositionSetFileTime"/>.
+            </returns>
+        </member>
+        <member name="P:NPSMLib.MediaTimelineProperties.PositionSetFileTime">
+            <summary>
+            Gets the <see cref="T:System.DateTime"/> at which the timeline properties were last updated.
+            </summary>
+            <returns>
+            A <see cref="T:System.DateTime"/> that represents the last time the timeline properties were updated.
+            </returns>
+        </member>
+        <member name="T:NPSMLib.MediaObjectInfo">
+            <summary>
+            A structure that holds information about the content that the current session has.
+            </summary>
+        </member>
+        <member name="P:NPSMLib.MediaObjectInfo.AlbumArtist">
+            <summary>
+            Gets the album's artist.
+            </summary>
+            <returns>The name of the album artist.</returns>
+        </member>
+        <member name="P:NPSMLib.MediaObjectInfo.AlbumTitle">
+            <summary>
+            Gets the title of the album.
+            </summary>
+            <returns>The title of the album.</returns>
+        </member>
+        <member name="P:NPSMLib.MediaObjectInfo.Subtitle">
+            <summary>
+            Gets the subtitle.
+            </summary>
+            <returns>The subtitle of the media.</returns>
+        </member>
+        <member name="P:NPSMLib.MediaObjectInfo.Title">
+            <summary>
+            Gets the title.
+            </summary>
+            <returns>The title of the media.</returns>
+        </member>
+        <member name="P:NPSMLib.MediaObjectInfo.Artist">
+            <summary>
+            Gets the artist's name.
+            </summary>
+            <returns>The name of the artist.</returns>
+        </member>
+        <member name="P:NPSMLib.MediaObjectInfo.MediaClassPrimaryID">
+            <summary>
+            Gets the primary class ID or schema of the media.
+            </summary>
+            <returns>The primary class ID or schema of the media.</returns>
+            <remarks>
+            Use the <see cref="M:NPSMLib.MediaPlaybackDataSource.MediaSchemaToMediaPlaybackMode(System.String)"/> method
+            to get the corresponding <see cref="T:NPSMLib.MediaPlaybackMode"/>.
+            This property is kept intact due to its flexibility which the <see cref="T:NPSMLib.MediaPlaybackMode"/> enumerations can't provide.
+            </remarks>
+        </member>
+        <member name="P:NPSMLib.MediaObjectInfo.Genres">
+            <summary>
+            Gets the list of genres.
+            </summary>
+            <returns>An array of strings representing the genres.</returns>
+        </member>
+        <member name="P:NPSMLib.MediaObjectInfo.AlbumTrackCount">
+            <summary>
+            Gets the total number of tracks on the album.
+            </summary>
+            <returnss>The total number of tracks on the album.</returnss>
+        </member>
+        <member name="P:NPSMLib.MediaObjectInfo.TrackNumber">
+            <summary>
+            Gets the track's number.
+            </summary>
+            <returns>The number associated with the current track.</returns>
+        </member>
+    </members>
+</doc>
