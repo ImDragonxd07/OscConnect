@@ -1,7 +1,3 @@
-
-![Logo](https://github.com/ImDragonxd07/OscConnect/blob/main/OscConnectScreenshots/LOGO.png?raw=true)
-
-
 # OSC CONNECT
 
 Osc Connect allows control of Windows NowPlayingManager through VRChat OSC
