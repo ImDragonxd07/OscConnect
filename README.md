@@ -2,6 +2,7 @@
 
 Osc Connect allows control of Windows NowPlayingManager through VRChat OSC
 
+Want to use multiple osc apps at the same time? check out https://github.com/SutekhVRC/VOR
 ## Installation
 VRC FURY IS REQUIRED https://vrcfury.com
 
