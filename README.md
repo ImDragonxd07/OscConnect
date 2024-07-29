@@ -3,7 +3,6 @@
 Osc Connect allows control of Windows NowPlayingManager through VRChat OSC
 
 ## Installation
-
 VRC FURY IS REQUIRED https://vrcfury.com
 
     1. Download and import vrcfury
@@ -19,3 +18,13 @@ VRC FURY IS REQUIRED https://vrcfury.com
 ![App Screenshot](https://github.com/ImDragonxd07/OscConnect/blob/main/OscConnectScreenshots/chatbox%20(2).png?raw=true)
 
 ![App Screenshot](https://github.com/ImDragonxd07/OscConnect/blob/main/OscConnectScreenshots/console.png?raw=true)
+
+## Dependencies
+
+OSC Lib: https://github.com/ValdemarOrn/SharpOSC 
+
+NowPlayingManager Lib: https://github.com/ADeltaX/NPSMLib
+
+Console ui: https://spectreconsole.net
+
+Json lib: https://www.newtonsoft.com/json
